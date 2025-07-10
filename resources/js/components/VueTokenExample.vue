@@ -143,18 +143,11 @@ const getTypographyStyle = (category, variant) => {
 </script>
 
 <style scoped>
-/* CSS 변수 사용 예시 - 직접 CSS 변수 참조 */
 .direct-css-vars {
   background-color: var(--color-secondary-100);
   color: var(--color-secondary-800);
   border: 2px solid var(--color-secondary-300);
-  padding: var(--spacing-lg);
-  border-radius: var(--borderRadius-lg);
-}
-
-/* Vue 3 v-bind 예시 - 단순 값만 가능 */
-.simple-bind {
-  font-size: v-bind('designTokens.typography.body.base.fontSize');
-  font-weight: v-bind('designTokens.typography.body.base.fontWeight');
+  padding: 24px;
+  border-radius: 12px;
 }
 </style> 
