@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomic Design System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a'
+                        },
+                        secondary: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12'
+                        },
+                        success: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d'
+                        },
+                        warning: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12'
+                        },
+                        error: {
+                            50: '#fef2f2',
+                            100: '#fee2e2',
+                            200: '#fecaca',
+                            300: '#fca5a5',
+                            400: '#f87171',
+                            500: '#ef4444',
+                            600: '#dc2626',
+                            700: '#b91c1c',
+                            800: '#991b1b',
+                            900: '#7f1d1d'
+                        },
+                        neutral: {
+                            50: '#f9fafb',
+                            100: '#f3f4f6',
+                            200: '#e5e7eb',
+                            300: '#d1d5db',
+                            400: '#9ca3af',
+                            500: '#6b7280',
+                            600: '#4b5563',
+                            700: '#374151',
+                            800: '#1f2937',
+                            900: '#111827'
+                        }
+                    },
+                    fontSize: {
+                        'display-large': ['160pt', '1.1'],
+                        'display-medium': ['105pt', '1.1'],
+                        'display-small': ['71pt', '1.1'],
+                        'display-D160Bold100': ['160pt', '1.0'],
+                        'heading-h1': ['48pt', '1.2'],
+                        'heading-h2': ['36pt', '1.2'],
+                        'heading-h3': ['24pt', '1.3'],
+                        'heading-h4': ['20pt', '1.3'],
+                        'body-large': ['18px', '1.6'],
+                        'body-base': ['16px', '1.6'],
+                        'body-small': ['14px', '1.5']
+                    },
+                    spacing: {
+                        'xs': '4px',
+                        'sm': '8px',
+                        'md': '16px',
+                        'lg': '24px',
+                        'xl': '32px',
+                        '2xl': '48px',
+                        '3xl': '64px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .click-to-copy {
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .click-to-copy:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .copy-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #22c55e;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .copy-notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-neutral-50 min-h-screen">
+    <div class="container mx-auto p-8">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-display-D160Bold100 font-bold text-neutral-900 mb-4">
+                Atomic Design System
+            </h1>
+            <p class="text-body-large text-neutral-600">
+                🎯 Figma Token "D160Bold100" 적용 완료
+            </p>
+            <div class="flex justify-center gap-4 mt-6">
+                <a href="index.html" class="bg-primary-500 text-white px-6 py-3 rounded-lg hover:bg-primary-600 transition-colors">
+                    홈
+                </a>
+                <a href="tokens.html" class="bg-secondary-500 text-white px-6 py-3 rounded-lg hover:bg-secondary-600 transition-colors">
+                    토큰 데모
+                </a>
+            </div>
+        </header>
+
+        <!-- Figma Token Demo -->
+        <section class="mb-12 bg-white p-6 rounded-lg shadow-sm">
+            <h2 class="text-heading-h2 font-bold text-primary-600 mb-6">🎯 Figma에서 가져온 토큰</h2>
+            
+            <div class="space-y-6 border-l-4 border-primary-500 pl-6">
+                <div>
+                    <p class="text-display-D160Bold100 text-neutral-900">Figma D160Bold100 Token</p>
+                    <p class="text-sm text-neutral-500 font-mono bg-gray-100 px-2 py-1 rounded cursor-pointer click-to-copy"
+                       onclick="copyToClipboard('text-display-D160Bold100')">
+                        text-display-D160Bold100 → 160pt, Bold(700), LineHeight: 1.0
+                    </p>
+                </div>
+                
+                <div>
+                    <p class="text-display-large text-neutral-900">기존 Display Large</p>
+                    <p class="text-sm text-neutral-500 font-mono bg-gray-100 px-2 py-1 rounded cursor-pointer click-to-copy"
+                       onclick="copyToClipboard('text-display-large')">
+                        text-display-large → 160pt, Bold(700), LineHeight: 1.1
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Color Palette -->
+        <section class="mb-12">
+            <h2 class="text-heading-h2 font-bold text-neutral-800 mb-6">색상 팔레트</h2>
+            
+            <!-- Primary Colors -->
+            <div class="mb-8">
+                <h3 class="text-heading-h3 font-semibold text-neutral-700 mb-4">Primary</h3>
+                <div class="grid grid-cols-10 gap-2">
+                    <div class="bg-primary-50 aspect-square rounded-md flex items-center justify-center text-xs font-medium click-to-copy" 
+                         onclick="copyToClipboard('bg-primary-50')">50</div>
+                    <div class="bg-primary-100 aspect-square rounded-md flex items-center justify-center text-xs font-medium click-to-copy" 
+                         onclick="copyToClipboard('bg-primary-100')">100</div>
+                    <div class="bg-primary-200 aspect-square rounded-md flex items-center justify-center text-xs font-medium click-to-copy" 
+                         onclick="copyToClipboard('bg-primary-200')">200</div>
+                    <div class="bg-primary-300 aspect-square rounded-md flex items-center justify-center text-xs font-medium click-to-copy" 
+                         onclick="copyToClipboard('bg-primary-300')">300</div>
+                    <div class="bg-primary-400 aspect-square rounded-md flex items-center justify-center text-xs font-medium click-to-copy" 
+                         onclick="copyToClipboard('bg-primary-400')">400</div>
+                    <div class="bg-primary-500 aspect-square rounded-md flex items-center justify-center text-xs font-medium text-white click-to-copy" 
+                         onclick="copyToClipboard('bg-primary-500')">500</div>
+                    <div class="bg-primary-600 aspect-square rounded-md flex items-center justify-center text-xs font-medium text-white click-to-copy" 
+                         onclick="copyToClipboard('bg-primary-600')">600</div>
+                    <div class="bg-primary-700 aspect-square rounded-md flex items-center justify-center text-xs font-medium text-white click-to-copy" 
+                         onclick="copyToClipboard('bg-primary-700')">700</div>
+                    <div class="bg-primary-800 aspect-square rounded-md flex items-center justify-center text-xs font-medium text-white click-to-copy" 
+                         onclick="copyToClipboard('bg-primary-800')">800</div>
+                    <div class="bg-primary-900 aspect-square rounded-md flex items-center justify-center text-xs font-medium text-white click-to-copy" 
+                         onclick="copyToClipboard('bg-primary-900')">900</div>
+                </div>
+            </div>
+
+            <!-- Secondary Colors -->
+            <div class="mb-8">
+                <h3 class="text-heading-h3 font-semibold text-neutral-700 mb-4">Secondary</h3>
+                <div class="grid grid-cols-10 gap-2">
+                    <div class="bg-secondary-50 aspect-square rounded-md flex items-center justify-center text-xs font-medium click-to-copy" 
+                         onclick="copyToClipboard('bg-secondary-50')">50</div>
+                    <div class="bg-secondary-100 aspect-square rounded-md flex items-center justify-center text-xs font-medium click-to-copy" 
+                         onclick="copyToClipboard('bg-secondary-100')">100</div>
+                    <div class="bg-secondary-200 aspect-square rounded-md flex items-center justify-center text-xs font-medium click-to-copy" 
+                         onclick="copyToClipboard('bg-secondary-200')">200</div>
+                    <div class="bg-secondary-300 aspect-square rounded-md flex items-center justify-center text-xs font-medium click-to-copy" 
+                         onclick="copyToClipboard('bg-secondary-300')">300</div>
+                    <div class="bg-secondary-400 aspect-square rounded-md flex items-center justify-center text-xs font-medium click-to-copy" 
+                         onclick="copyToClipboard('bg-secondary-400')">400</div>
+                    <div class="bg-secondary-500 aspect-square rounded-md flex items-center justify-center text-xs font-medium text-white click-to-copy" 
+                         onclick="copyToClipboard('bg-secondary-500')">500</div>
+                    <div class="bg-secondary-600 aspect-square rounded-md flex items-center justify-center text-xs font-medium text-white click-to-copy" 
+                         onclick="copyToClipboard('bg-secondary-600')">600</div>
+                    <div class="bg-secondary-700 aspect-square rounded-md flex items-center justify-center text-xs font-medium text-white click-to-copy" 
+                         onclick="copyToClipboard('bg-secondary-700')">700</div>
+                    <div class="bg-secondary-800 aspect-square rounded-md flex items-center justify-center text-xs font-medium text-white click-to-copy" 
+                         onclick="copyToClipboard('bg-secondary-800')">800</div>
+                    <div class="bg-secondary-900 aspect-square rounded-md flex items-center justify-center text-xs font-medium text-white click-to-copy" 
+                         onclick="copyToClipboard('bg-secondary-900')">900</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="mb-12">
+            <h2 class="text-heading-h2 font-bold text-neutral-800 mb-6">타이포그래피</h2>
+            
+            <div class="space-y-6">
+                <div class="p-4 bg-primary-50 rounded-lg">
+                    <p class="text-display-D160Bold100 text-primary-900">🎯 Figma Token: D160Bold100</p>
+                    <p class="text-xs text-primary-600 font-mono cursor-pointer hover:bg-primary-100 px-2 py-1 rounded click-to-copy" 
+                       onclick="copyToClipboard('text-display-D160Bold100')">
+                        text-display-D160Bold100 (클릭해서 복사)
+                    </p>
+                </div>
+                
+                <div>
+                    <p class="text-display-large text-neutral-900">Display Large - 160pt</p>
+                    <p class="text-xs text-neutral-500 cursor-pointer hover:bg-gray-100 px-2 py-1 rounded click-to-copy" 
+                       onclick="copyToClipboard('text-display-large')">
+                        text-display-large (클릭해서 복사)
+                    </p>
+                </div>
+                
+                <div>
+                    <h1 class="text-heading-h1 text-neutral-900">Heading H1 - 48pt</h1>
+                    <p class="text-xs text-neutral-500 cursor-pointer hover:bg-gray-100 px-2 py-1 rounded click-to-copy" 
+                       onclick="copyToClipboard('text-heading-h1')">
+                        text-heading-h1 (클릭해서 복사)
+                    </p>
+                </div>
+                
+                <div>
+                    <p class="text-body-large text-neutral-700">Body Large - 18px</p>
+                    <p class="text-xs text-neutral-500 cursor-pointer hover:bg-gray-100 px-2 py-1 rounded click-to-copy" 
+                       onclick="copyToClipboard('text-body-large')">
+                        text-body-large (클릭해서 복사)
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buttons -->
+        <section class="mb-12">
+            <h2 class="text-heading-h2 font-bold text-neutral-800 mb-6">버튼 컴포넌트</h2>
+            
+            <div class="flex flex-wrap gap-4">
+                <button class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-medium transition-colors click-to-copy"
+                        onclick="copyToClipboard('bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg')">
+                    Primary Button
+                </button>
+                
+                <button class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-3 rounded-lg font-medium transition-colors click-to-copy"
+                        onclick="copyToClipboard('bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-3 rounded-lg')">
+                    Secondary Button
+                </button>
+                
+                <button class="border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-lg font-medium transition-colors click-to-copy"
+                        onclick="copyToClipboard('border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-6 py-3 rounded-lg')">
+                    Outline Button
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 border-t border-neutral-200">
+            <p class="text-body-small text-neutral-500">
+                🚀 Figma Token Studio → Tailwind CSS 완벽 연동 완료
+            </p>
+            <p class="text-body-small text-neutral-400 mt-2">
+                FTP로 배포 가능한 정적 사이트
+            </p>
+        </footer>
+    </div>
+
+    <!-- Copy Notification -->
+    <div id="copyNotification" class="copy-notification">
+        📋 클래스명이 복사되었습니다!
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopyNotification();
+                }).catch(err => {
+                    console.error('복사 실패:', err);
+                    fallbackCopy(text);
+                });
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showCopyNotification();
+            } catch (err) {
+                console.error('복사 실패:', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showCopyNotification() {
+            const notification = document.getElementById('copyNotification');
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,48 @@
+{
+  "typography": {
+    "display": {
+      "mobile": {
+        "value": {
+          "fontFamily": "Inter",
+          "fontSize": "71pt",
+          "fontWeight": 700,
+          "lineHeight": 1.1
+        }
+      },
+      "tablet": {
+        "value": {
+          "fontFamily": "Inter", 
+          "fontSize": "105pt",
+          "fontWeight": 700,
+          "lineHeight": 1.1
+        }
+      },
+      "desktop": {
+        "value": {
+          "fontFamily": "Inter",
+          "fontSize": "160pt", 
+          "fontWeight": 700,
+          "lineHeight": 1.1
+        }
+      }
+    },
+    "heading": {
+      "h1": {
+        "value": {
+          "fontFamily": "Inter",
+          "fontSize": "48pt",
+          "fontWeight": 700,
+          "lineHeight": 1.2
+        }
+      },
+      "h2": {
+        "value": {
+          "fontFamily": "Inter",
+          "fontSize": "36pt", 
+          "fontWeight": 700,
+          "lineHeight": 1.2
+        }
+      }
+    }
+  }
+} 

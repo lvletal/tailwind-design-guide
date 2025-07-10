@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Studio Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa',
+                            500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a'
+                        },
+                        secondary: {
+                            50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 300: '#fdba74', 400: '#fb923c',
+                            500: '#f97316', 600: '#ea580c', 700: '#c2410c', 800: '#9a3412', 900: '#7c2d12'
+                        },
+                        success: {
+                            50: '#f0fdf4', 100: '#dcfce7', 200: '#bbf7d0', 300: '#86efac', 400: '#4ade80',
+                            500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d'
+                        },
+                        warning: {
+                            50: '#fefce8', 100: '#fef9c3', 200: '#fef08a', 300: '#fde047', 400: '#facc15',
+                            500: '#eab308', 600: '#ca8a04', 700: '#a16207', 800: '#854d0e', 900: '#713f12'
+                        },
+                        error: {
+                            50: '#fef2f2', 100: '#fee2e2', 200: '#fecaca', 300: '#fca5a5', 400: '#f87171',
+                            500: '#ef4444', 600: '#dc2626', 700: '#b91c1c', 800: '#991b1b', 900: '#7f1d1d'
+                        },
+                        neutral: {
+                            50: '#f9fafb', 100: '#f3f4f6', 200: '#e5e7eb', 300: '#d1d5db', 400: '#9ca3af',
+                            500: '#6b7280', 600: '#4b5563', 700: '#374151', 800: '#1f2937', 900: '#111827'
+                        }
+                    },
+                    fontSize: {
+                        'display-D160Bold100': ['160pt', '1.0'],
+                        'display-large': ['160pt', '1.1'],
+                        'display-medium': ['105pt', '1.1'],
+                        'display-small': ['71pt', '1.1'],
+                        'heading-h1': ['48pt', '1.2'],
+                        'heading-h2': ['36pt', '1.2'],
+                        'heading-h3': ['24pt', '1.3'],
+                        'heading-h4': ['20pt', '1.3'],
+                        'body-large': ['18px', '1.6'],
+                        'body-base': ['16px', '1.6'],
+                        'body-small': ['14px', '1.5']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-neutral-50 min-h-screen">
+    <div class="container mx-auto p-8">
+        <nav class="mb-8">
+            <div class="flex gap-4">
+                <a href="index.html" class="bg-neutral-600 text-white px-4 py-2 rounded hover:bg-neutral-700">홈</a>
+                <a href="tokens.html" class="bg-primary-500 text-white px-4 py-2 rounded">토큰 데모</a>
+            </div>
+        </nav>
+
+        <h1 class="text-display-D160Bold100 font-bold text-neutral-900 mb-8">
+            Figma Token: D160Bold100
+        </h1>
+        
+        <!-- All Colors Grid -->
+        <section class="mb-12">
+            <h2 class="text-heading-h2 font-bold text-neutral-800 mb-6">전체 색상 팔레트</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Primary -->
+                <div>
+                    <h3 class="text-heading-h3 font-semibold text-neutral-700 mb-4">Primary</h3>
+                    <div class="grid grid-cols-5 gap-2">
+                        <div class="bg-primary-50 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-primary-50')">50</div>
+                        <div class="bg-primary-100 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-primary-100')">100</div>
+                        <div class="bg-primary-200 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-primary-200')">200</div>
+                        <div class="bg-primary-300 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-primary-300')">300</div>
+                        <div class="bg-primary-400 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-primary-400')">400</div>
+                        <div class="bg-primary-500 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-primary-500')">500</div>
+                        <div class="bg-primary-600 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-primary-600')">600</div>
+                        <div class="bg-primary-700 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-primary-700')">700</div>
+                        <div class="bg-primary-800 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-primary-800')">800</div>
+                        <div class="bg-primary-900 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-primary-900')">900</div>
+                    </div>
+                </div>
+
+                <!-- Secondary -->
+                <div>
+                    <h3 class="text-heading-h3 font-semibold text-neutral-700 mb-4">Secondary</h3>
+                    <div class="grid grid-cols-5 gap-2">
+                        <div class="bg-secondary-50 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-secondary-50')">50</div>
+                        <div class="bg-secondary-100 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-secondary-100')">100</div>
+                        <div class="bg-secondary-200 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-secondary-200')">200</div>
+                        <div class="bg-secondary-300 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-secondary-300')">300</div>
+                        <div class="bg-secondary-400 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-secondary-400')">400</div>
+                        <div class="bg-secondary-500 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-secondary-500')">500</div>
+                        <div class="bg-secondary-600 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-secondary-600')">600</div>
+                        <div class="bg-secondary-700 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-secondary-700')">700</div>
+                        <div class="bg-secondary-800 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-secondary-800')">800</div>
+                        <div class="bg-secondary-900 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-secondary-900')">900</div>
+                    </div>
+                </div>
+
+                <!-- Success -->
+                <div>
+                    <h3 class="text-heading-h3 font-semibold text-neutral-700 mb-4">Success</h3>
+                    <div class="grid grid-cols-5 gap-2">
+                        <div class="bg-success-50 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-success-50')">50</div>
+                        <div class="bg-success-100 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-success-100')">100</div>
+                        <div class="bg-success-200 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-success-200')">200</div>
+                        <div class="bg-success-300 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-success-300')">300</div>
+                        <div class="bg-success-400 h-16 rounded flex items-center justify-center text-xs cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-success-400')">400</div>
+                        <div class="bg-success-500 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-success-500')">500</div>
+                        <div class="bg-success-600 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-success-600')">600</div>
+                        <div class="bg-success-700 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-success-700')">700</div>
+                        <div class="bg-success-800 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-success-800')">800</div>
+                        <div class="bg-success-900 h-16 rounded flex items-center justify-center text-xs text-white cursor-pointer hover:scale-105 transition-transform" onclick="copyToClipboard('bg-success-900')">900</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography Showcase -->
+        <section class="mb-12 bg-white p-6 rounded-lg">
+            <h2 class="text-heading-h2 font-bold text-neutral-800 mb-6">타이포그래피 시스템</h2>
+            
+            <div class="space-y-8">
+                <div class="border-l-4 border-primary-500 pl-6">
+                    <p class="text-display-D160Bold100 text-primary-900 mb-2">🎯 Figma Token</p>
+                    <code class="text-sm bg-primary-100 px-3 py-1 rounded text-primary-700 cursor-pointer hover:bg-primary-200" 
+                          onclick="copyToClipboard('text-display-D160Bold100')">
+                        text-display-D160Bold100
+                    </code>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="flex items-baseline gap-4">
+                        <div class="flex-1">
+                            <p class="text-display-large text-neutral-900">Display Large</p>
+                        </div>
+                        <code class="text-sm bg-gray-100 px-2 py-1 rounded cursor-pointer hover:bg-gray-200" 
+                              onclick="copyToClipboard('text-display-large')">
+                            text-display-large
+                        </code>
+                    </div>
+                    
+                    <div class="flex items-baseline gap-4">
+                        <div class="flex-1">
+                            <h1 class="text-heading-h1 text-neutral-900">Heading H1</h1>
+                        </div>
+                        <code class="text-sm bg-gray-100 px-2 py-1 rounded cursor-pointer hover:bg-gray-200" 
+                              onclick="copyToClipboard('text-heading-h1')">
+                            text-heading-h1
+                        </code>
+                    </div>
+                    
+                    <div class="flex items-baseline gap-4">
+                        <div class="flex-1">
+                            <h2 class="text-heading-h2 text-neutral-900">Heading H2</h2>
+                        </div>
+                        <code class="text-sm bg-gray-100 px-2 py-1 rounded cursor-pointer hover:bg-gray-200" 
+                              onclick="copyToClipboard('text-heading-h2')">
+                            text-heading-h2
+                        </code>
+                    </div>
+                    
+                    <div class="flex items-baseline gap-4">
+                        <div class="flex-1">
+                            <p class="text-body-large text-neutral-700">Body Large Text</p>
+                        </div>
+                        <code class="text-sm bg-gray-100 px-2 py-1 rounded cursor-pointer hover:bg-gray-200" 
+                              onclick="copyToClipboard('text-body-large')">
+                            text-body-large
+                        </code>
+                    </div>
+                    
+                    <div class="flex items-baseline gap-4">
+                        <div class="flex-1">
+                            <p class="text-body-base text-neutral-700">Body Base Text</p>
+                        </div>
+                        <code class="text-sm bg-gray-100 px-2 py-1 rounded cursor-pointer hover:bg-gray-200" 
+                              onclick="copyToClipboard('text-body-base')">
+                            text-body-base
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Button Gallery -->
+        <section class="mb-12">
+            <h2 class="text-heading-h2 font-bold text-neutral-800 mb-6">버튼 갤러리</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="space-y-4">
+                    <h3 class="text-heading-h4 font-semibold">Primary Buttons</h3>
+                    <button class="w-full bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg transition-colors cursor-pointer" 
+                            onclick="copyToClipboard('bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg')">
+                        Primary Button
+                    </button>
+                    <button class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg transition-colors cursor-pointer" 
+                            onclick="copyToClipboard('bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg')">
+                        Primary Dark
+                    </button>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="text-heading-h4 font-semibold">Secondary Buttons</h3>
+                    <button class="w-full bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-3 rounded-lg transition-colors cursor-pointer" 
+                            onclick="copyToClipboard('bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-3 rounded-lg')">
+                        Secondary Button
+                    </button>
+                    <button class="w-full border-2 border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white px-6 py-3 rounded-lg transition-colors cursor-pointer" 
+                            onclick="copyToClipboard('border-2 border-secondary-500 text-secondary-500 hover:bg-secondary-500 hover:text-white px-6 py-3 rounded-lg')">
+                        Secondary Outline
+                    </button>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="text-heading-h4 font-semibold">Status Buttons</h3>
+                    <button class="w-full bg-success-500 hover:bg-success-600 text-white px-6 py-3 rounded-lg transition-colors cursor-pointer" 
+                            onclick="copyToClipboard('bg-success-500 hover:bg-success-600 text-white px-6 py-3 rounded-lg')">
+                        Success
+                    </button>
+                    <button class="w-full bg-warning-500 hover:bg-warning-600 text-white px-6 py-3 rounded-lg transition-colors cursor-pointer" 
+                            onclick="copyToClipboard('bg-warning-500 hover:bg-warning-600 text-white px-6 py-3 rounded-lg')">
+                        Warning
+                    </button>
+                    <button class="w-full bg-error-500 hover:bg-error-600 text-white px-6 py-3 rounded-lg transition-colors cursor-pointer" 
+                            onclick="copyToClipboard('bg-error-500 hover:bg-error-600 text-white px-6 py-3 rounded-lg')">
+                        Error
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Copy Notification -->
+    <div id="copyNotification" class="fixed bottom-4 right-4 bg-success-500 text-white px-4 py-2 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300">
+        📋 클래스명이 복사되었습니다!
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopyNotification();
+                }).catch(err => {
+                    fallbackCopy(text);
+                });
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showCopyNotification();
+            } catch (err) {
+                console.error('복사 실패:', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showCopyNotification() {
+            const notification = document.getElementById('copyNotification');
+            notification.classList.remove('translate-y-20', 'opacity-0');
+            notification.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                notification.classList.add('translate-y-20', 'opacity-0');
+                notification.classList.remove('translate-y-0', 'opacity-100');
+            }, 2000);
+        }
+    </script>
+</body>
+</html> 
