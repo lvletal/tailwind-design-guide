@@ -77,7 +77,7 @@ StyleDictionary.registerFormat({
 });
 
 module.exports = {
-  source: ['tokens/**/*.json'],
+  source: ['tokens/**/*.json', 'tokens.json'],
   platforms: {
     tailwind: {
       transformGroup: 'js',
