@@ -1,0 +1,57 @@
+name: 🤖 Auto Build Design Tokens
+
+on:
+  push:
+    paths:
+      - 'tokens/**/*.json'
+  workflow_dispatch:
+
+jobs:
+  build-tokens:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: 📦 Install dependencies
+      run: npm ci
+    
+    - name: 🔨 Build design tokens
+      run: npm run build-tokens
+    
+    - name: 🎯 Check for changes
+      id: verify-changed-files
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "changed=true" >> $GITHUB_OUTPUT
+        else
+          echo "changed=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: 💾 Commit updated tokens
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "🤖 Token Builder"
+        git add build/
+        git commit -m "🎨 Auto-update design tokens from Figma
+
+        - Updated CSS Variables in build/design-tokens.css
+        - Updated Tailwind tokens in build/tailwind-tokens.js
+        - Source commit: ${{ github.sha }}"
+        git push
+    
+    - name: 🎉 Success notification
+      if: steps.verify-changed-files.outputs.changed == 'true'
+      run: |
+        echo "✅ Design tokens successfully updated!"
+        echo "🌐 Changes will be reflected on the website" 
