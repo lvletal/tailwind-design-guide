@@ -31,6 +31,17 @@
               @click="switchComponent('token')">
               🎯 토큰 데모
             </button>
+            
+            <button 
+              :class="[
+                'px-4 py-2 rounded-lg font-medium transition-colors',
+                currentComponent === 'style-dictionary' 
+                  ? 'bg-purple-500 text-white' 
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              ]"
+              @click="switchComponent('style-dictionary')">
+              🔧 Style Dictionary
+            </button>
           </div>
         </div>
       </div>
@@ -47,6 +58,11 @@
         v-if="currentComponent === 'token'"
         @switch-component="switchComponent"
       />
+      
+      <StyleDictionaryDemo 
+        v-if="currentComponent === 'style-dictionary'"
+        @switch-component="switchComponent"
+      />
     </div>
   </div>
 </template>
@@ -55,6 +71,7 @@
 import { ref } from 'vue'
 import DesignGuide from './components/DesignGuide.vue'
 import TokenDemo from './components/TokenDemo.vue'
+import StyleDictionaryDemo from './components/StyleDictionaryDemo.vue'
 
 const currentComponent = ref('guide')
 

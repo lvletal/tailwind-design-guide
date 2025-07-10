@@ -1,13 +1,15 @@
 {
     "private": true,
     "type": "module",
-        "scripts": {
+    "scripts": {
         "build": "vite build",
-        "dev": "vite", 
+        "dev": "vite",
         "preview": "vite preview",
         "build-tokens": "npx style-dictionary build --config style-dictionary.config.cjs",
         "tokens": "npm run build-tokens && npm run dev",
-        "dev-tokens": "npm run build-tokens && npm run dev"
+        "dev-tokens": "npm run build-tokens && npm run dev",
+        "watch-tokens": "npx style-dictionary build --config style-dictionary.config.cjs --watch",
+        "clean-tokens": "rm -rf build/ && npm run build-tokens"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
