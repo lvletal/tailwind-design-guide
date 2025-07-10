@@ -50,6 +50,57 @@ StyleDictionary.registerFormat({
   }
 });
 
+// Custom format for Vue.js tokens
+StyleDictionary.registerFormat({
+  name: 'javascript/vue-tokens',
+  formatter: function(dictionary) {
+    const tokens = {};
+    
+    dictionary.allTokens.forEach(token => {
+      let current = tokens;
+      const path = token.path;
+      
+      // Create nested object structure
+      for (let i = 0; i < path.length - 1; i++) {
+        if (!current[path[i]]) {
+          current[path[i]] = {};
+        }
+        current = current[path[i]];
+      }
+      
+      // Set the value
+      current[path[path.length - 1]] = token.value;
+    });
+    
+    return `// Vue.js Design Tokens
+// Auto-generated from Figma Token Studio
+import { reactive } from 'vue';
+
+export const designTokens = reactive(${JSON.stringify(tokens, null, 2)});
+
+// CSS Variables helper
+export const cssVars = {
+${dictionary.allTokens.map(token => {
+  const name = token.path.join('-');
+  return `  '${name}': 'var(--${name})'`;
+}).join(',\n')}
+};
+
+// Tailwind classes helper
+export const tailwindClasses = {
+  colors: {
+${dictionary.allTokens.filter(token => token.path[0] === 'color').map(token => {
+  const colorName = token.path[1];
+  const shade = token.path[2];
+  return `    '${colorName}-${shade}': 'bg-${colorName}-${shade}'`;
+}).join(',\n')}
+  }
+};
+
+export default designTokens;`;
+  }
+});
+
 // Custom format for CSS variables
 StyleDictionary.registerFormat({
   name: 'css/design-tokens',
@@ -93,6 +144,14 @@ module.exports = {
       files: [{
         destination: 'design-tokens.css',
         format: 'css/design-tokens'
+      }]
+    },
+    vue: {
+      transformGroup: 'js',
+      buildPath: 'resources/js/',
+      files: [{
+        destination: 'tokens.js',
+        format: 'javascript/vue-tokens'
       }]
     }
   }
