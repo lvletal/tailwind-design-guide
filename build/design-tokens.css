@@ -127,7 +127,7 @@
   --global-primary-500: #3b82f6;
   --global-primary-600: pink;
   --global-primary-700: #1e40af;
-  --global-primary-800: #1e3a8a;
+  --global-primary-800: #ff003c;
   --global-primary-900: #000;
   --global-secondary-50: #fff7ed;
   --global-secondary-100: #ffedd5;
@@ -166,4 +166,13 @@
   --global-typography-heading-h3-font-size: 71pt;
   --global-typography-heading-h3-font-weight: 500;
   --global-typography-heading-h3-line-height: 1.4;
+  --Guide_Tree_Test-fontWeights-sb: Semi Bold;
+  --Guide_Tree_Test-Body-16: 16;
+  --Guide_Tree_Test-Head-24: 24;
+  --Guide_Tree_Test-Head-28: 28;
+  --Guide_Tree_Test-fontFamilies-inter: Inter;
+  --Guide_Tree_Test-CaseNone: none;
+  --Guide_Tree_Test-CaseUpper: uppercase;
+  --Guide_Tree_Test-CaseLow: lowercase;
+  --Guide_Tree_Test-CaseCapital: capitalize;
 }
