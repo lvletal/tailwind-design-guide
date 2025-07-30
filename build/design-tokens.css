@@ -166,7 +166,9 @@
   --global-typography-heading-h3-font-size: 71pt;
   --global-typography-heading-h3-font-weight: 500;
   --global-typography-heading-h3-line-height: 1.4;
-  --Guide_Tree_Test-fontWeights-sb: Semi Bold;
+  --Guide_Tree_Test-Body-10: 10;
+  --Guide_Tree_Test-Body-12: 12;
+  --Guide_Tree_Test-Body-14: 14;
   --Guide_Tree_Test-Body-16: 16;
   --Guide_Tree_Test-Head-24: 24;
   --Guide_Tree_Test-Head-28: 28;
@@ -174,6 +176,15 @@
   --Guide_Tree_Test-CaseNone: none;
   --Guide_Tree_Test-CaseUpper: uppercase;
   --Guide_Tree_Test-CaseLow: lowercase;
-  --Guide_Tree_Test-CaseCapital: capitalize;
   --Guide_Tree_Test-Family_CarterOne: Carter One;
+  --Guide_Tree_Test-CaseCapital: capitalize;
+  --Guide_Tree_Test-lineHeights_zero: 100%;
+  --Guide_Tree_Test-lineHeights_Large: 140%;
+  --Guide_Tree_Test-lineHeights_meddle: 120%;
+  --Guide_Tree_Test-fustat-LT: Light;
+  --Guide_Tree_Test-fustat-SB: SemiBold;
+  --Guide_Tree_Test-fustat-EB: ExtraBold;
+  --Guide_Tree_Test-TextDeco_none: none;
+  --Guide_Tree_Test-TextDeco_underline: underline;
+  --Guide_Tree_Test-carter-one-RG: Regular;
 }
